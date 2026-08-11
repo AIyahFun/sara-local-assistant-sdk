@@ -1,0 +1,39 @@
+{
+  "$schema": "../tool-definition.schema.json",
+  "name": "system.get_context",
+  "version": "1.0.0",
+  "description": "Return the current synthetic kiosk screen, locale, connectivity, and local-assistant readiness.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": ["screen", "locale", "offline", "localAssistantReady"],
+    "properties": {
+      "screen": {
+        "enum": ["home", "measurements", "medications", "alerts", "contacts", "devices", "settings"]
+      },
+      "locale": {
+        "enum": ["he-IL", "en-US"]
+      },
+      "offline": {
+        "type": "boolean"
+      },
+      "localAssistantReady": {
+        "type": "boolean"
+      }
+    },
+    "additionalProperties": false
+  },
+  "sara": {
+    "effect": "read",
+    "confirmation": "none",
+    "offline": true,
+    "timeoutMs": 1000,
+    "capabilities": ["assistant_context"],
+    "contexts": ["default", "demo"],
+    "maxResultBytes": 1024
+  }
+}

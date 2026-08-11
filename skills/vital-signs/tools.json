@@ -1,0 +1,8 @@
+{
+  "skill": "vital-signs",
+  "tools": [
+    "vitals.get_latest",
+    "vitals.get_trend_summary",
+    "ui.open"
+  ]
+}

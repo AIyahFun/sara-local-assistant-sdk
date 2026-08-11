@@ -1,0 +1,55 @@
+{
+  "$schema": "../tool-definition.schema.json",
+  "name": "device.get_summary",
+  "version": "1.0.0",
+  "description": "Return a synthetic, identifier-free summary of tablet and measurement-device readiness.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": ["tabletBatteryPercent", "network", "measurementDevices", "synthetic"],
+    "properties": {
+      "tabletBatteryPercent": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "network": {
+        "enum": ["online", "offline", "limited"]
+      },
+      "measurementDevices": {
+        "type": "array",
+        "maxItems": 8,
+        "items": {
+          "type": "object",
+          "required": ["kind", "state"],
+          "properties": {
+            "kind": {
+              "enum": ["pulse_oximeter", "blood_pressure_monitor", "thermometer", "scale"]
+            },
+            "state": {
+              "enum": ["ready", "not_connected", "needs_attention"]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "synthetic": {
+        "const": true
+      }
+    },
+    "additionalProperties": false
+  },
+  "sara": {
+    "effect": "read",
+    "confirmation": "none",
+    "offline": true,
+    "timeoutMs": 1500,
+    "capabilities": ["synthetic_device_summary"],
+    "contexts": ["demo"],
+    "maxResultBytes": 2048
+  }
+}

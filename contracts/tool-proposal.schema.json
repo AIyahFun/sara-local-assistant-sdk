@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sara-assistant.dev/schemas/tool-proposal.schema.json",
+  "title": "Model-produced tool proposal",
+  "type": "object",
+  "required": ["tool", "arguments"],
+  "properties": {
+    "tool": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$",
+      "maxLength": 64
+    },
+    "arguments": {
+      "type": "object",
+      "maxProperties": 8
+    }
+  },
+  "additionalProperties": false
+}

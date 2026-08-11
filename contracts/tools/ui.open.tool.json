@@ -1,0 +1,38 @@
+{
+  "$schema": "../tool-definition.schema.json",
+  "name": "ui.open",
+  "version": "1.0.0",
+  "description": "Request navigation to one allowlisted kiosk screen and return the destination actually opened.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["screen"],
+    "properties": {
+      "screen": {
+        "enum": ["home", "measurements", "medications", "alerts", "contacts", "devices", "settings"]
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": ["opened", "screen"],
+    "properties": {
+      "opened": {
+        "type": "boolean"
+      },
+      "screen": {
+        "enum": ["home", "measurements", "medications", "alerts", "contacts", "devices", "settings"]
+      }
+    },
+    "additionalProperties": false
+  },
+  "sara": {
+    "effect": "navigate",
+    "confirmation": "none",
+    "offline": true,
+    "timeoutMs": 1500,
+    "capabilities": ["allowlisted_navigation"],
+    "contexts": ["default", "demo"],
+    "maxResultBytes": 512
+  }
+}

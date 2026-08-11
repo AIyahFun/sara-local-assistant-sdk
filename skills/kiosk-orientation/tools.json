@@ -1,0 +1,8 @@
+{
+  "skill": "kiosk-orientation",
+  "tools": [
+    "system.get_context",
+    "ui.open",
+    "help.explain_screen"
+  ]
+}

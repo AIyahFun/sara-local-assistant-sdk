@@ -1,0 +1,8 @@
+{
+  "skill": "device-help",
+  "tools": [
+    "device.get_summary",
+    "ui.open",
+    "help.explain_screen"
+  ]
+}

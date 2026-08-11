@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sara-assistant.dev/schemas/tool-definition.schema.json",
+  "title": "SARA assistant tool definition",
+  "type": "object",
+  "required": [
+    "$schema",
+    "name",
+    "version",
+    "description",
+    "inputSchema",
+    "outputSchema",
+    "sara"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_]*$",
+      "maxLength": 64
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 12,
+      "maxLength": 240
+    },
+    "inputSchema": {
+      "$ref": "#/$defs/objectSchema"
+    },
+    "outputSchema": {
+      "$ref": "#/$defs/objectSchema"
+    },
+    "sara": {
+      "type": "object",
+      "required": [
+        "effect",
+        "confirmation",
+        "offline",
+        "timeoutMs",
+        "capabilities",
+        "contexts",
+        "maxResultBytes"
+      ],
+      "properties": {
+        "effect": {
+          "enum": ["read", "navigate"]
+        },
+        "confirmation": {
+          "const": "none"
+        },
+        "offline": {
+          "type": "boolean"
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 10000
+        },
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          }
+        },
+        "contexts": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["default", "demo"]
+          }
+        },
+        "maxResultBytes": {
+          "type": "integer",
+          "minimum": 256,
+          "maximum": 16384
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "objectSchema": {
+      "type": "object",
+      "required": ["type", "properties", "additionalProperties"],
+      "properties": {
+        "type": {
+          "const": "object"
+        },
+        "properties": {
+          "type": "object"
+        },
+        "required": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": {
+          "const": false
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

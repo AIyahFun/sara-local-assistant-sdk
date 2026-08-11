@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schemaVersion": "1.0.0",
+  "version": "0.1.0",
+  "status": "experimental",
+  "tools": [
+    {
+      "name": "system.get_context",
+      "definition": "tools/system.get_context.tool.json"
+    },
+    {
+      "name": "ui.open",
+      "definition": "tools/ui.open.tool.json"
+    },
+    {
+      "name": "vitals.get_latest",
+      "definition": "tools/vitals.get_latest.tool.json"
+    },
+    {
+      "name": "vitals.get_trend_summary",
+      "definition": "tools/vitals.get_trend_summary.tool.json"
+    },
+    {
+      "name": "device.get_summary",
+      "definition": "tools/device.get_summary.tool.json"
+    },
+    {
+      "name": "help.explain_screen",
+      "definition": "tools/help.explain_screen.tool.json"
+    }
+  ]
+}

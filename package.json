@@ -1,0 +1,25 @@
+{
+  "name": "sara-local-assistant-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Experimental, public-safe SDK and simulator for an on-device SARA assistant.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "sdk/javascript"
+  ],
+  "scripts": {
+    "check": "node tools/check-public-boundary.mjs && node --test \"tests/*.test.mjs\"",
+    "check:boundary": "node tools/check-public-boundary.mjs",
+    "simulator": "node simulator/mock-kiosk/server.mjs",
+    "sample": "node samples/javascript/basic.mjs",
+    "test": "node --test \"tests/*.test.mjs\""
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  },
+  "license": "Apache-2.0"
+}

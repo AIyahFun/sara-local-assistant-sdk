@@ -1,0 +1,41 @@
+name: Bounded feature proposal
+description: Propose a public-safe SDK, simulator, skill, or evaluation improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: Do not include real user data, production configuration, or security-sensitive details.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What volunteer or kiosk-assistant problem should be solved?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed bounded solution
+      description: Describe inputs, outputs, effect, and failure behavior.
+    validations:
+      required: true
+  - type: dropdown
+    id: effect
+    attributes:
+      label: Effect
+      options:
+        - Read only
+        - Allowlisted navigation
+        - No tool effect
+        - Write or external effect (not currently accepted)
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: This proposal uses synthetic examples only.
+          required: true

@@ -1,0 +1,39 @@
+name: Model evaluation report
+description: Share reproducible results for an on-device model adapter.
+title: "[Evaluation]: "
+labels:
+  - evaluation
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Model and exact version
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Model license and source
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware class
+      description: Report generic hardware characteristics, not a production device identifier.
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results
+      description: Include routing, tool selection, argument accuracy, unsafe-call rate, latency, memory, and thermal observations.
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Data declaration
+      options:
+        - label: Only repository-provided or equivalent synthetic data was used.
+          required: true

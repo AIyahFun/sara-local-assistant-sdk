@@ -1,0 +1,15 @@
+node_modules/
+.gradle/
+**/build/
+coverage/
+.env
+.env.*
+*.log
+*.tmp
+*.local
+*.gguf
+*.safetensors
+*.litertlm
+*.task
+*.tflite
+eval-results/

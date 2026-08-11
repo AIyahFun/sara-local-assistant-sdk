@@ -1,0 +1,49 @@
+{
+  "$schema": "../tool-definition.schema.json",
+  "name": "help.explain_screen",
+  "version": "1.0.0",
+  "description": "Return a bounded plain-text explanation of one allowlisted kiosk screen.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["screen", "locale"],
+    "properties": {
+      "screen": {
+        "enum": ["home", "measurements", "medications", "alerts", "contacts", "devices", "settings"]
+      },
+      "locale": {
+        "enum": ["he-IL", "en-US"]
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": ["screen", "locale", "explanation", "synthetic"],
+    "properties": {
+      "screen": {
+        "enum": ["home", "measurements", "medications", "alerts", "contacts", "devices", "settings"]
+      },
+      "locale": {
+        "enum": ["he-IL", "en-US"]
+      },
+      "explanation": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      },
+      "synthetic": {
+        "const": true
+      }
+    },
+    "additionalProperties": false
+  },
+  "sara": {
+    "effect": "read",
+    "confirmation": "none",
+    "offline": true,
+    "timeoutMs": 1000,
+    "capabilities": ["assistant_help"],
+    "contexts": ["default", "demo"],
+    "maxResultBytes": 1024
+  }
+}

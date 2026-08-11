@@ -1,0 +1,85 @@
+{
+  "$schema": "../tool-definition.schema.json",
+  "name": "vitals.get_trend_summary",
+  "version": "1.0.0",
+  "description": "Return deterministic synthetic trend summaries without clinical interpretation or recommendations.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["kinds", "windowHours"],
+    "properties": {
+      "kinds": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 4,
+        "uniqueItems": true,
+        "items": {
+          "enum": ["heart_rate", "spo2", "temperature", "weight", "respiratory_rate"]
+        }
+      },
+      "windowHours": {
+        "enum": [6, 12, 24, 72, 168]
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": ["summaries", "asOf", "synthetic", "clinicalInterpretation"],
+    "properties": {
+      "summaries": {
+        "type": "array",
+        "maxItems": 4,
+        "items": {
+          "type": "object",
+          "required": ["kind", "sampleCount", "windowHours", "trend", "firstValue", "lastValue", "unit"],
+          "properties": {
+            "kind": {
+              "enum": ["heart_rate", "spo2", "temperature", "weight", "respiratory_rate"]
+            },
+            "sampleCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 50
+            },
+            "windowHours": {
+              "enum": [6, 12, 24, 72, 168]
+            },
+            "trend": {
+              "enum": ["stable", "rising", "falling", "insufficient_data"]
+            },
+            "firstValue": {
+              "type": "number"
+            },
+            "lastValue": {
+              "type": "number"
+            },
+            "unit": {
+              "enum": ["bpm", "%", "C", "kg", "breaths/min"]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "asOf": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "synthetic": {
+        "const": true
+      },
+      "clinicalInterpretation": {
+        "const": false
+      }
+    },
+    "additionalProperties": false
+  },
+  "sara": {
+    "effect": "read",
+    "confirmation": "none",
+    "offline": true,
+    "timeoutMs": 2500,
+    "capabilities": ["synthetic_measurements"],
+    "contexts": ["demo"],
+    "maxResultBytes": 4096
+  }
+}

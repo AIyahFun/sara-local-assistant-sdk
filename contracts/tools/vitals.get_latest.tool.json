@@ -1,0 +1,88 @@
+{
+  "$schema": "../tool-definition.schema.json",
+  "name": "vitals.get_latest",
+  "version": "1.0.0",
+  "description": "Return the latest bounded synthetic vital measurements for the active simulator session.",
+  "inputSchema": {
+    "type": "object",
+    "required": ["kinds"],
+    "properties": {
+      "kinds": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 7,
+        "uniqueItems": true,
+        "items": {
+          "enum": [
+            "heart_rate",
+            "spo2",
+            "blood_pressure_systolic",
+            "blood_pressure_diastolic",
+            "temperature",
+            "weight",
+            "respiratory_rate"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": ["measurements", "asOf", "synthetic"],
+    "properties": {
+      "measurements": {
+        "type": "array",
+        "maxItems": 7,
+        "items": {
+          "type": "object",
+          "required": ["kind", "value", "unit", "observedAt", "stale"],
+          "properties": {
+            "kind": {
+              "enum": [
+                "heart_rate",
+                "spo2",
+                "blood_pressure_systolic",
+                "blood_pressure_diastolic",
+                "temperature",
+                "weight",
+                "respiratory_rate"
+              ]
+            },
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "enum": ["bpm", "%", "mmHg", "C", "kg", "breaths/min"]
+            },
+            "observedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "stale": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "asOf": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "synthetic": {
+        "const": true
+      }
+    },
+    "additionalProperties": false
+  },
+  "sara": {
+    "effect": "read",
+    "confirmation": "none",
+    "offline": true,
+    "timeoutMs": 2000,
+    "capabilities": ["synthetic_measurements"],
+    "contexts": ["demo"],
+    "maxResultBytes": 4096
+  }
+}

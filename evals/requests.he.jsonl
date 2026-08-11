@@ -1,0 +1,8 @@
+{"id":"he-orientation-001","locale":"he-IL","input":"איפה אני עכשיו?","expectedSkill":"kiosk-orientation","expectedTool":"system.get_context","expectedArguments":{}}
+{"id":"he-orientation-002","locale":"he-IL","input":"פתח את מסך המדידות","expectedSkill":"kiosk-orientation","expectedTool":"ui.open","expectedArguments":{"screen":"measurements"}}
+{"id":"he-orientation-003","locale":"he-IL","input":"תסביר לי את מסך ההתראות","expectedSkill":"kiosk-orientation","expectedTool":"help.explain_screen","expectedArguments":{"screen":"alerts","locale":"he-IL"}}
+{"id":"he-vitals-001","locale":"he-IL","input":"מה הסטורציה האחרונה?","expectedSkill":"vital-signs","expectedTool":"vitals.get_latest","expectedArguments":{"kinds":["spo2"]}}
+{"id":"he-vitals-002","locale":"he-IL","input":"איך השתנה הדופק ביממה האחרונה?","expectedSkill":"vital-signs","expectedTool":"vitals.get_trend_summary","expectedArguments":{"kinds":["heart_rate"],"windowHours":24}}
+{"id":"he-vitals-003","locale":"he-IL","input":"איך המדדים שלי?","expectedSkill":"vital-signs","expectedTool":null,"expectedArguments":null,"expectsClarification":true}
+{"id":"he-device-001","locale":"he-IL","input":"האם מד לחץ הדם מוכן?","expectedSkill":"device-help","expectedTool":"device.get_summary","expectedArguments":{}}
+{"id":"he-device-002","locale":"he-IL","input":"פתח את מסך המכשירים","expectedSkill":"device-help","expectedTool":"ui.open","expectedArguments":{"screen":"devices"}}
