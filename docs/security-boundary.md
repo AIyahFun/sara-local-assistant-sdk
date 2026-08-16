@@ -20,15 +20,17 @@
 6. Never claim that a queued or accepted action succeeded without a durable operation record.
 7. Fail closed when a capability, owner, schema, or model feature is unavailable.
 
-## Initial effect policy
+## Effect policy
 
-| Effect | Initial status | Host behavior |
+| Effect | Research status | Host behavior |
 |---|---|---|
 | `read` | Allowed | Validate and execute immediately when capability is present |
 | `navigate` | Allowed | Restrict destination to a fixed enum and report the actual result |
-| Preference write | Not published | Requires a future preview and deterministic confirmation design |
-| Medical or external write | Not published | Requires separate safety, audit, replay, and consent review |
-| Emergency or administrative action | Prohibited | Must remain in a dedicated trusted user interface |
+| `research` | Allowed | Return a structured hypothesis, evidence, uncertainty, and provenance for evaluation |
+| `simulate` | Allowed | Exercise treatment, dosage, communication, triage, or emergency workflows against synthetic state with no production adapter |
+| Production write | Separate surface | Requires an independently reviewed production adapter, authorization, consent, audit, and replay design |
+
+The boundary separates reproducible research from production effects; it does not limit which clinical capabilities may be investigated in the simulator.
 
 ## Prompt injection
 

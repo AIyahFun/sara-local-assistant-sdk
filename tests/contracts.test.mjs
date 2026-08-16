@@ -28,8 +28,8 @@ test('every published tool is bounded and fail-closed', () => {
   for (const [name, { definition }] of contracts.tools) {
     assert.equal(definition.inputSchema.additionalProperties, false, `${name} input must reject extra fields`);
     assert.equal(definition.outputSchema.additionalProperties, false, `${name} output must reject extra fields`);
-    assert.ok(['read', 'navigate'].includes(definition.sara.effect));
-    assert.equal(definition.sara.confirmation, 'none');
+    assert.ok(['read', 'navigate', 'research', 'simulate'].includes(definition.sara.effect));
+    assert.ok(['none', 'preview', 'explicit'].includes(definition.sara.confirmation));
     assert.ok(definition.sara.maxResultBytes <= 16384);
 
     for (const argumentName of Object.keys(definition.inputSchema.properties)) {

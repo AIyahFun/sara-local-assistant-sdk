@@ -2,7 +2,7 @@
 
 ## Reporting
 
-Do not open a public issue for a suspected vulnerability, accidental sensitive-data exposure, or unsafe medical behavior. Use GitHub private vulnerability reporting for this repository. If that channel is unavailable, contact the repository owner privately through their GitHub profile before sharing details.
+Do not open a public issue for a suspected vulnerability, accidental sensitive-data exposure, production-boundary bypass, or fabricated action success. Use GitHub private vulnerability reporting for this repository. If that channel is unavailable, contact the repository owner privately through their GitHub profile before sharing details.
 
 ## Never include
 

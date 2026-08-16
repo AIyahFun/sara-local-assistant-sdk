@@ -49,10 +49,10 @@
       ],
       "properties": {
         "effect": {
-          "enum": ["read", "navigate"]
+          "enum": ["read", "navigate", "research", "simulate"]
         },
         "confirmation": {
-          "const": "none"
+          "enum": ["none", "preview", "explicit"]
         },
         "offline": {
           "type": "boolean"
@@ -78,7 +78,7 @@
           "maxItems": 4,
           "uniqueItems": true,
           "items": {
-            "enum": ["default", "demo"]
+            "enum": ["default", "demo", "research"]
           }
         },
         "maxResultBytes": {
