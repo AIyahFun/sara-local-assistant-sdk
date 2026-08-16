@@ -8,3 +8,12 @@ updates:
     directory: /sdk/kotlin
     schedule:
       interval: weekly
+    open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: gradle-wrapper
+        update-types:
+          - version-update:semver-major
+      - dependency-name: org.jetbrains.kotlin.jvm
+        update-types:
+          - version-update:semver-major
+          - version-update:semver-minor
