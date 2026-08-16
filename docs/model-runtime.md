@@ -27,5 +27,7 @@ An adapter implements a small `LocalModelEngine` responsibility:
 - Thermal behavior over repeated turns.
 - Dashboard, connectivity, and measurement stability while inference runs.
 - Hebrew and English skill routing, tool selection, argument accuracy, clarification rate, and unsafe-call rate.
+- Diagnostic, treatment, dosage, triage, and emergency-simulation agreement against explicit synthetic references.
+- Calibration, abstention quality, uncertainty accuracy, subgroup performance, and error severity.
 
 Model packages are distributed separately from this repository. Every model requires a documented source, license, hash, compatibility range, and rollback path.

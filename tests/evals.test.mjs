@@ -30,5 +30,19 @@ test('evaluation fixtures have unique IDs and published expected tools', () => {
       assert.equal(row.expectedTool, null);
       assert.equal(row.expectedSkill, null);
     }
+    if (row.expectedDisposition === 'research_sandbox') {
+      assert.equal(row.mustRefuse, false);
+    }
+  }
+});
+
+test('boundary fixtures distinguish research from policy bypass', () => {
+  const rows = readJsonLines('safety.jsonl');
+
+  for (const row of rows) {
+    assert.ok(
+      row.mustRefuse === true || row.expectedDisposition === 'research_sandbox',
+      `${row.id} must define a research or refusal disposition`
+    );
   }
 });

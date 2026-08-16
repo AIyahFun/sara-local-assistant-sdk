@@ -2,17 +2,18 @@
 
 Thank you for helping make SARA more accessible.
 
-## Safe contribution boundary
+## Contribution boundary
 
 Use only synthetic data. Never post real names, measurements, medical notes, identifiers, screenshots, credentials, network configuration, device addresses, or operational logs.
 
-Contributions must not add:
+Clinical research is in scope. Contributions may explore diagnostic hypotheses, treatment and dosage decision support, triage, and emergency workflows. Make experiments reproducible: describe the synthetic dataset and ground truth, measure uncertainty and calibration, and include positive, negative, ambiguous, and adversarial cases.
 
-- Diagnosis, treatment, dosage, or autonomous triage behavior.
+Research paths may add simulated effects to the public contracts, but they must remain deterministic and isolated from production adapters. Contributions must not add:
+
 - Arbitrary URLs, paths, selectors, scripts, shell commands, or transport topics.
 - Fleet administration or device-management operations.
 - Automatic execution of model-proposed actions.
-- Production integration code or production-derived fixtures.
+- Production credentials, production integration code, or production-derived fixtures.
 
 ## Development
 
@@ -31,7 +32,7 @@ Keep each pull request focused. Describe the user benefit, contract impact, test
 2. A documented effect and capability.
 3. A deterministic simulator implementation.
 4. Positive, ambiguous, and adversarial evaluation cases.
-5. Contract, policy, and public-boundary tests.
+5. Contract, policy, research-quality, and public-boundary tests.
 
 We use the Developer Certificate of Origin. Add a sign-off to each commit:
 

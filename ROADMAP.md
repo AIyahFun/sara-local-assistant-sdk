@@ -20,8 +20,13 @@
 - Generation cancellation, offline state, and clear source/freshness display.
 - Physical-tablet evaluation using synthetic accounts and reserved test devices.
 
-## Later, only after explicit safety review
+## 0.4 — Clinical research tracks
 
-- Reversible preferences with deterministic confirmation.
-- Additional read-only domains backed by stable internal owners.
-- Any write, communication, medication, or emergency workflow remains out of scope until confirmation, idempotency, audit, and replay tests exist.
+- Diagnostic hypothesis generation and evidence-grounded explanations on synthetic cases.
+- Treatment and dosage decision-support benchmarks with explicit reference answers and error analysis.
+- Triage and emergency-workflow simulation, including escalation timing and disagreement analysis.
+- Calibration, uncertainty, subgroup, false-positive, and false-negative evaluation.
+- Human-versus-model and model-versus-model comparison harnesses.
+- Reversible simulated actions with preview, confirmation, idempotency, audit, and replay tests.
+
+Production connection is a separate milestone. Research can proceed in the synthetic simulator while evidence, adapters, operational ownership, and release criteria are developed independently.

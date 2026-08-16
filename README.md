@@ -4,8 +4,7 @@ Experimental tools for volunteers building a small, on-device assistant for SARA
 
 This repository is deliberately separated from the production SARA system. It contains model-neutral contracts, a synthetic kiosk simulator, example assistant skills, client SDKs, and evaluation fixtures. It contains no production credentials, patient records, fleet administration interface, or live SARA backend access.
 
-> [!IMPORTANT]
-> This is a research and development kit, not a medical device or clinical decision system. The assistant must not diagnose, recommend treatment, calculate dosage, or make emergency decisions.
+The research scope includes the full range of local-assistant capabilities: diagnostic reasoning, treatment and dosage decision support, triage, and emergency-workflow simulation. Contributors are encouraged to test ambitious approaches with synthetic cases, explicit ground truth, reproducible metrics, and structured uncertainty. Connecting a research capability to production is a separate adapter and release decision.
 
 עברית: [README.he.md](README.he.md)
 
@@ -15,6 +14,7 @@ This repository is deliberately separated from the production SARA system. It co
 - Adapters for small local-model runtimes.
 - Accessible assistant experiences that consume the public contracts.
 - Read-only assistant skills and deterministic summaries.
+- Clinical-reasoning, treatment, dosage, triage, and emergency-workflow research on synthetic cases.
 - Performance benchmarks on representative Android tablet classes.
 
 The initial catalog exposes six bounded tools:
