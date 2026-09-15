@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    kotlin("jvm") version "2.1.10"
+    kotlin("jvm") version "2.4.20"
 }
 
 group = "org.sara.assistant"
